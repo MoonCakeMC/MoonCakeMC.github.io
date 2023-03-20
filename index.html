@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>. . . // 在这里编写AJAX代码
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">
+    </script>
     <script>function showMarkdown() {
-        // 获取表单变量
-        var f = form;
         // 创建XMLHttpRequest对象
         var xmlhttp;
         if (window.XMLHttpRequest) {
@@ -24,7 +23,7 @@
         }
 
         // 向服务器发送请求，获取你需要的Markdown文档
-        xmlhttp.open("GET", "https://mooncakemc-generic.pkg.coding.net/direct_file/direct_file/恒班wiki.md?version=latest", true);
+        xmlhttp.open("GET", "恒班wiki.md", true);
         xmlhttp.send();
       }
     </script>
