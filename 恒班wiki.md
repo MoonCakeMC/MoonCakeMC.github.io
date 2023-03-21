@@ -64,7 +64,7 @@
 
 (这里不是BUG，是故意的)
 
-1. zzd x xjh x lzx
+1. xjh x lzx x zzd
 2. gzk x zzz
-3. zzh x tsxl
+3. tsxl x zzh
 4. cjd x zmz x wqy
