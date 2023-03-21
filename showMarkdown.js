@@ -17,8 +17,8 @@ function showMarkdown() {
 				.innerHTML = marked.parse(xmlhttp.responseText);
 		}
 	}
-
+	str = document.getElementById("md_name").value;
 	// 向服务器发送请求，获取你需要的Markdown文档
-	xmlhttp.open("GET", "https://mooncakemc.github.io/恒班wiki.md", true);
+	xmlhttp.open("GET", "https://0mwk9w8e.s3.us-east-005.backblazeb2.com/"+str, true);
 	xmlhttp.send();
 }
