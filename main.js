@@ -1,10 +1,17 @@
+function getQueryString(name) {
+	const url_string = window.location.href;
+	const url = new URL(url_string);
+	return url.searchParams.get(name);
+}
+
 function showMarkdown() {
 	// 创建XMLHttpRequest对象
 	var xmlhttp;
-	if (window.XMLHttpRequest) {
+	if (window.XMLHttpRequest){
 		// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
 		xmlhttp = new XMLHttpRequest();
-	} else {
+	}
+	else{
 		// IE6, IE5 浏览器执行代码
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
@@ -16,8 +23,20 @@ function showMarkdown() {
 			document.getElementById("content")
 				.innerHTML = marked.parse(xmlhttp.responseText);
 		}
+		else if (xmlhttp.status == 404){
+			document.getElementById("content").innerHTML = marked.parse("# 404 Not Found\n**The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.**");
+		}
 	}
-	str = document.getElementById("md_name").value;
+	str = getQueryString("id");
+	if (str == null){
+		str = "index.md";
+	}
+	else{
+		if (!str.endsWith(".md")){
+			str = str + ".md"
+		}
+	}
+	console.log(str);
 	// 向服务器发送请求，获取你需要的Markdown文档
 	xmlhttp.open("GET", "https://0mwk9w8e.s3.us-east-005.backblazeb2.com/"+str, true);
 	xmlhttp.send();
