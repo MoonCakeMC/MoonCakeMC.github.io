@@ -20,8 +20,8 @@ function showMarkdown() {
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			// 这里调用了marked框架中的marked函数实现Markdown2HTML的解析
-			document.getElementById("content")
-				.innerHTML = marked.parse(xmlhttp.responseText);
+			document.getElementById("content").innerHTML = marked.parse(xmlhttp.responseText);
+			MathJax.typeset();
 		}
 		else if (xmlhttp.status == 404){
 			document.getElementById("content").innerHTML = marked.parse("# 404 Not Found\n**The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.**");
