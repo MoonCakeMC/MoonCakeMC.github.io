@@ -338,12 +338,42 @@
 						   });
 					},
 					configKey = function() {
+						var is_confirm;
+
 						var accessKeyId = prompt("accessKeyId");
+						is_confirm = true;
+						if (accessKeyId == null){
+							return
+						}
+						if (accessKeyId == ""){
+							is_confirm = confirm("确认删除存储的accessKeyId")
+						}
+						if (is_confirm){
+							localStorage.setItem("accessKeyId",accessKeyId);
+						}
+
 						var secretAccessKey = prompt("secretAccessKey");
+						is_confirm = true;
+						if (secretAccessKey == null){
+							return
+						}
+						if (secretAccessKey == ""){
+							is_confirm = confirm("确认删除存储的secretAccessKey")
+						}
+						if (is_confirm){
+							localStorage.setItem("secretAccessKey",secretAccessKey);
+						}
 						var endpoint = prompt("endpoint");
-						localStorage.setItem("accessKeyId",accessKeyId);
-						localStorage.setItem("secretAccessKey",secretAccessKey);
-						localStorage.setItem("endpoint",endpoint);
+						is_confirm = true;
+						if (endpoint == null){
+							return
+						}
+						if (endpoint == ""){
+							is_confirm = confirm("确认删除存储的endpoint")
+						}
+						if (is_confirm){
+							localStorage.setItem("endpoint",endpoint);
+						}
 					},
 					saveMd = function() {
 						if (!Blob || !URL) return _.b.error("\u6d4f\u89c8\u5668\u4e0d\u652f\u6301\u5bfc\u51famd\u6587\u4ef6\uff0c\u8bf7\u66f4\u6362\u6d4f\u89c8\u5668\u518d\u8bd5");
