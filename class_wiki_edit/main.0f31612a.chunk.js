@@ -1,4 +1,10 @@
 /*! For license information please see main.0f31612a.chunk.js.LICENSE.txt */
+function getQueryString(name) {
+	const url_string = window.location.href;
+	const url = new URL(url_string);
+	return url.searchParams.get(name);
+}
+
 (this["webpackJsonpreact-library-demo"] = this["webpackJsonpreact-library-demo"] || [])
 .push([
 	[0], {
