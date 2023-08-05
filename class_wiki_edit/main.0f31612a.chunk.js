@@ -21815,9 +21815,10 @@
 			};
 			var Gd = function() {
 				const Http = new XMLHttpRequest();
-				const url='https://0mwk9w8e.s3.us-east-005.backblazeb2.com/'.concat(getQueryString("id") == null) ? "class_wiki.md" : (!getQueryString("id").endsWith(".md") ? getQueryString("id").concat(".md") : getQueryString("id"));
+				const url='https://0mwk9w8e.s3.us-east-005.backblazeb2.com/'.concat((getQueryString("id") == null) ? "class_wiki.md" : (!getQueryString("id").endsWith(".md") ? getQueryString("id").concat(".md") : getQueryString("id")));
 				Http.open("GET", url, false);
 				Http.send();
+				console.log(Http.status);
 				if (Http.status == 404){
 					var aaaaa = window.location.href.split("/");
 					aaaaa.pop();
