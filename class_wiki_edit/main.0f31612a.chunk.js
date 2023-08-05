@@ -21814,22 +21814,33 @@
 				}, void 0)
 			};
 			var Gd = function() {
+				var file_name = (getQueryString("id") == null) ? "class_wiki.md" : (!getQueryString("id").endsWith(".md") ? getQueryString("id").concat(".md") : getQueryString("id"));
 				const Http = new XMLHttpRequest();
-				const url='https://0mwk9w8e.s3.us-east-005.backblazeb2.com/'.concat((getQueryString("id") == null) ? "class_wiki.md" : (!getQueryString("id").endsWith(".md") ? getQueryString("id").concat(".md") : getQueryString("id")));
+				const url='https://0mwk9w8e.s3.us-east-005.backblazeb2.com/'.concat(file_name);
 				Http.open("GET", url, false);
 				Http.send();
-				console.log(Http.status);
+				
+				var initValue;
+				var behavior_of_404 = 1;
 				if (Http.status == 404){
-					var aaaaa = window.location.href.split("/");
-					aaaaa.pop();
-					aaaaa.push("404.html")
-					window.location.href = aaaaa.join("/")
+					if (behavior_of_404 == 0){
+						var aaaaa = window.location.href.split("/");
+						aaaaa.pop();
+						aaaaa.push("404.html");
+						window.location.href = aaaaa.join("/");
+					}
+					else if (behavior_of_404 == 1){
+						initValue = "# 创建新文件 ".concat(file_name);
+					}
+				}
+				else if (Http.status == 200){
+					initValue = Http.responseText;
 				}
 
 				return Object(g.jsx)("div", {
 					className: "App",
 					children: Object(g.jsx)(Bd, {
-						initValue: Http.responseText
+						initValue: initValue
 					})
 				})
 			};
