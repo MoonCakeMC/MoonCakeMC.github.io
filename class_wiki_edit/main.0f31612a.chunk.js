@@ -1,10 +1,4 @@
 /*! For license information please see main.0f31612a.chunk.js.LICENSE.txt */
-function getQueryString(name) {
-	const url_string = window.location.href;
-	const url = new URL(url_string);
-	return url.searchParams.get(name);
-}
-
 (this["webpackJsonpreact-library-demo"] = this["webpackJsonpreact-library-demo"] || [])
 .push([
 	[0], {
@@ -148,6 +142,12 @@ function getQueryString(name) {
 			}
 			var nn = b.a.Item,
 				en = b.a.ItemGroup;
+
+			function getQueryString(name) {
+				const url_string = window.location.href;
+				const url = new URL(url_string);
+				return url.searchParams.get(name);
+			}
 
 			function tn(n) {
 				var e = Object(a.useState)("railscasts"),
@@ -21818,6 +21818,12 @@ function getQueryString(name) {
 				const url='https://0mwk9w8e.s3.us-east-005.backblazeb2.com/'.concat(getQueryString("id") == null) ? "class_wiki.md" : (!getQueryString("id").endsWith(".md") ? getQueryString("id").concat(".md") : getQueryString("id"));
 				Http.open("GET", url, false);
 				Http.send();
+				if (Http.status == 404){
+					var aaaaa = window.location.href.split("/");
+					aaaaa.pop();
+					aaaaa.push("404.html")
+					window.location.href = aaaaa.join("/")
+				}
 
 				return Object(g.jsx)("div", {
 					className: "App",
