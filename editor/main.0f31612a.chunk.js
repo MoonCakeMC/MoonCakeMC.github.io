@@ -303,6 +303,9 @@
 							case "configKey":
 								configKey()
 								break;
+							case "importKey":
+								importKey();
+								break;
 							case "saveMd":
 								saveMd();
 								break;
@@ -413,6 +416,34 @@
 							}
 						}))
 					},
+					importKey = function() {
+						if (!FileReader) return _.b.error("\u6d4f\u89c8\u5668\u4e0d\u652f\u6301\u5bfc\u5165md\u6587\u4ef6\uff0c\u8bf7\u66f4\u6362\u6d4f\u89c8\u5668\u518d\u8bd5");
+						var e = document.createElement("input");
+						e.type = "file", e.accept = ".md", e.click(), e.addEventListener("change", (function() {
+							var t = e.files;
+							if (t.length) {
+								var a = new FileReader;
+								a.readAsText(t[0]), a.onload = function() {
+									var api_key;
+									try{
+										api_key = JSON.parse(a.result);
+									}
+									catch (e){
+										return _.b.error("密钥格式错误")
+									}
+									var accessKeyId = api_key["accessKeyId"];
+									var secretAccessKey = api_key["secretAccessKey"];
+									var endpoint = api_key["endpoint"];
+									if (accessKeyId == undefined || secretAccessKey == undefined || endpoint == undefined){
+										return _.b.error("密钥文件缺少必要的键")
+									}
+									localStorage.setItem("accessKeyId",secretAccessKey);
+									localStorage.setItem("secretAccessKey",secretAccessKey);
+									localStorage.setItem("endpoint",secretAccessKey);
+								}
+							}
+						}))
+					},
 					S = Object(g.jsxs)(b.a, B({
 						onClick: u
 					}, {
@@ -426,6 +457,9 @@
 							Object(g.jsxs)(nn, {
 							children: [Object(g.jsx)(x.a, {}, void 0), "配置密钥"]
 						}, "configKey"), 
+							Object(g.jsxs)(nn, {
+							children: [Object(g.jsx)(x.a, {}, void 0), "导入密钥"]
+						}, "importKey"), 
 							Object(g.jsxs)(nn, {
 							children: [Object(g.jsx)(x.a, {}, void 0), "\u4fdd\u5b58md"]
 						}, "saveMd")
