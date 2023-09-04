@@ -419,7 +419,7 @@
 					importKey = function() {
 						if (!FileReader) return _.b.error("\u6d4f\u89c8\u5668\u4e0d\u652f\u6301\u5bfc\u5165md\u6587\u4ef6\uff0c\u8bf7\u66f4\u6362\u6d4f\u89c8\u5668\u518d\u8bd5");
 						var e = document.createElement("input");
-						e.type = "file", e.accept = ".md", e.click(), e.addEventListener("change", (function() {
+						e.type = "file", e.click(), e.addEventListener("change", (function() {
 							var t = e.files;
 							if (t.length) {
 								var a = new FileReader;
