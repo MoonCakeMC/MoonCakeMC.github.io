@@ -440,6 +440,7 @@
 									localStorage.setItem("accessKeyId",secretAccessKey);
 									localStorage.setItem("secretAccessKey",secretAccessKey);
 									localStorage.setItem("endpoint",secretAccessKey);
+									_.b.success("\u5bfc\u5165\u6210\u529f")
 								}
 							}
 						}))
