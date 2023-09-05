@@ -437,9 +437,9 @@
 									if (accessKeyId == undefined || secretAccessKey == undefined || endpoint == undefined){
 										return _.b.error("密钥文件缺少必要的键")
 									}
-									localStorage.setItem("accessKeyId",secretAccessKey);
+									localStorage.setItem("accessKeyId",accessKeyId);
 									localStorage.setItem("secretAccessKey",secretAccessKey);
-									localStorage.setItem("endpoint",secretAccessKey);
+									localStorage.setItem("endpoint",endpoint);
 									_.b.success("\u5bfc\u5165\u6210\u529f")
 								}
 							}
